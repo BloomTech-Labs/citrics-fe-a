@@ -1,16 +1,16 @@
 
-# LABS 27 - CITRICS TEAM C
+# LABS 28 - CITRICS TEAM A
 
 You can find the deployed project [HERE](https://27-c.citrics.dev/).
 See a video demo [HERE](https://www.youtube.com/watch?v=K0kvbHh7vDY&feature=youtu.be). 
 
 ## Contributors
 
-|                                                      [Michael Johnson](https://github.com/glassbones)                                                       |                                                       [Jamie Sullivan](https://github.com/jme-sull)                                                        |                                                      [Erick Canales](https://github.com/e94canales)                                                       |                                                       [Wesley Ruedebusch](https://github.com/wesley-ruedebusch)                                                        |                                                                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://ca.slack-edge.com/ESZCHB482-W012X6ZHT97-940a90e015a5-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W0138D8NB88-a5a6b569f7e8-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W0138D9M540-7c28e87840c9-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W012QNU1NTE-f7e77e891394-512" width = "200" />](https://github.com/) | 
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/glassbones)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jme-sull)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/e94canales)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wesley-ruedebusch)                           |                                                     |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/e94canales)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                
+|                                                      [Jeremiah Trnka](https://github.com/kc0buk)                                                       |                                                       [Matthew Hidalgo](https://github.com/mhidalgo83)                                                        |                                                                                                                                                                                       
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | 
+| [<img src="https://ca.slack-edge.com/ESZCHB482-W0143FPJF26-9452439419fb-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W012BRS2AP8-6af31753eb91-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W0138D9M540-7c28e87840c9-512" width = "200" />](https://github.com/) | [<img src="https://ca.slack-edge.com/ESZCHB482-W012QNU1NTE-f7e77e891394-512" width = "200" />](https://github.com/) | 
+|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kc0buk)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/mhidalgo83)                             |                                                                         |
+|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jeremiahtrnka/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/matthew-hidalgo1)                 |                         
 
 <br>
 <br>
@@ -31,7 +31,7 @@ See a video demo [HERE](https://www.youtube.com/watch?v=K0kvbHh7vDY&feature=yout
 
 #### Front end deployed to `AWS AMPLIFY`
 
-#### [Back end](https://github.com/Lambda-School-Labs/Labs27-C-Citrics-BE) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/citrics-be-a) built using:
 
 - Java/Spring
 
@@ -43,7 +43,15 @@ This app is authenticated using Okta. Learn more about [Okta](https://www.okta.c
 
 
 # Installation Instructions
-Clone this repo and install dependencies with npm
+To run this application, you will need:
+- REACT_APP_CLIENT_ID Okta client id (obtained from APL)
+- REACT_APP_OKTA_ISSUER_URI Okta API authorization server issuer URI (eg. https://name-438r8hr.okta.com/oauth2/default) (obtained from APL)
+- REACT_APP_API_URI The URL (localhost or live) for the Backend that you're building
+- Fork and clone the repo to install it as your own remote.
+- Please be sure to set your remote for this repo to point to your Labs Team Front End Repository.
+- Run npm install to download all dependencies.
+- Run npm start to start your local development server.
+- Create dotenv file to store application secrets to run locally on your machine.
 
 ## Other Scripts
 
@@ -56,7 +64,7 @@ Clone this repo and install dependencies with npm
 - Ant Design: Many of the components were built using AntDesign. Learn more about AntDesign [here](https://ant.design/components/overview/)
 - Styling: Styling was done using a combination of LESS and Javascript. We found it useful to override the AntDesign default styles with LESS by targeting the AntDesign classes
 - Media Breakpoints: Media Breakpoints were done using react-break. Learn more about react-break [here](https://www.npmjs.com/package/react-break)
--Redux - Redux was used for global state management 
+- Redux - Redux was used for global state management 
 
 ## File Organization
 
@@ -66,7 +74,7 @@ Clone this repo and install dependencies with npm
 
 ## Design Files and User Flow
 
--View our Figma designs and user flow outline on [Whimsical](https://whimsical.com/BrfVjttdRNhp7sbVNgKKNu)
+-View our Figma designs and user flow outline on [Whimsical](https://whimsical.com/4UKop3aqMB3KJRG2LXZzM6)
 
 # Contributing
 

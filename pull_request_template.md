@@ -12,5 +12,5 @@ Reviewed By:
 
 
 
-@Lambda-School-Labs/citrics-be-a
+@Lambda-School-Labs/citrics-fe-a
  

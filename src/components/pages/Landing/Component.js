@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '../../layouts';
-import { SearchPanel } from '../../common/';
+import { SearchPanel, SliderPanel } from '../../common/';
 
 // these functions are acting as jsx return statements, can be compartmentalized later.
 function titleContainer() {
@@ -26,6 +26,4 @@ function title() {
   );
 }
 
-export default ({ styles }) => (
-  <Canvas Side={[SearchPanel, title]} Main={titleContainer} />
-);
+export default ({ styles }) => <Canvas Main={[SearchPanel]} />;

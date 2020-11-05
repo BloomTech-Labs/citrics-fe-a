@@ -1,20 +1,20 @@
 import React from 'react';
-import Button from './Component';
+import SearchSlider from './Component';
 import { mobileStyles, tabletStyles, desktopStyles } from './styles';
 import { IsMobile, IsTablet, IsDesktop } from '../../layouts/breakPoints';
 
 export default () => (
   <>
     <IsMobile>
-      <Button props styles={mobileStyles} />
+      <SearchSlider styles={mobileStyles} />
     </IsMobile>
 
     <IsTablet>
-      <Button props styles={tabletStyles} />
+      <SearchSlider styles={tabletStyles} />
     </IsTablet>
 
     <IsDesktop>
-      <Button props styles={desktopStyles} />
+      <SearchSlider styles={desktopStyles} />
     </IsDesktop>
   </>
 );

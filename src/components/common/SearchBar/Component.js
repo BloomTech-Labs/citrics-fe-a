@@ -6,7 +6,7 @@ import { searchBarActs, cardContainerActs } from '../../../state/actions';
 import { useHistory, useLocation } from 'react-router-dom';
 import '../../../styles/style.less';
 
-function SearchBar() {
+function SearchBar(props) {
   const history = useHistory();
   const currentLocation = useLocation().pathname;
   const dispatch = useDispatch();
@@ -27,12 +27,10 @@ function SearchBar() {
     if (currentLocation != '/compare') history.push('/compare');
     dispatch(fetchSpecificCityData(city.id, city.value));
   };
-
   return (
     <AutoComplete
       defaultValue={filter}
       options={cityData}
-      style={{ width: '100%' }}
       onSelect={onSelect}
       defaultActiveFirstOption={true}
       onChange={onChange}
@@ -40,7 +38,7 @@ function SearchBar() {
       dropdownMatchSelectWidth={true}
     >
       <Input
-        placeholder="Search"
+        placeholder={'Search'}
         id="mainSearchInput"
         prefix={
           <LeftOutlined

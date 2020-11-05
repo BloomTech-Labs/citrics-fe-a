@@ -55,8 +55,7 @@ const container = (display, theme) => {
         display: 'flex',
         marginTop: '25%',
         justifyContent: 'space-evenly',
-        alignItems: 'center',
-        flexDirection: 'column',
+        width: '50%',
       };
 };
 
@@ -77,11 +76,5 @@ const style2 = (display, theme) => {
         ...css,
       }
     : //desktop (spread this bad boy and pass in what you want to change)
-      {
-        ...css,
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        width: '100%',
-        marginBottom: '10%',
-      };
+      { ...css };
 };

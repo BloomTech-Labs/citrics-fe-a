@@ -9,6 +9,7 @@ const Button = props => {
       onClick={props.handleClick}
       disabled={props.isDisabled}
       className={props.classType || 'primary'}
+      buttonText={props.buttonText}
     >
       {props.buttonText}
     </button>

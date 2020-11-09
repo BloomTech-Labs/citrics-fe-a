@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AutoComplete, Input } from 'antd';
 import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import '../../../styles/style.less';
 
 function SearchBar(props) {
+  console.log(props.newProps);
   const history = useHistory();
   const currentLocation = useLocation().pathname;
   const dispatch = useDispatch();
@@ -20,12 +21,10 @@ function SearchBar(props) {
   useEffect(() => {
     dispatch(fetchCities());
   }, [dispatch]);
-
   const onChange = value => dispatch(filterCities(value));
   // you can pass the object id to global state from here
   const onSelect = (value, city) => {
-    if (currentLocation != '/compare') history.push('/compare');
-    dispatch(fetchSpecificCityData(city.id, city.value));
+    props.newProps.setCities([...props.newProps.cities, city]);
   };
   return (
     <AutoComplete

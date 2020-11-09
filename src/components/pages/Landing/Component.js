@@ -26,4 +26,4 @@ function title() {
   );
 }
 
-export default ({ styles }) => <Canvas Main={[SearchPanel]} />;
+export default ({ styles }) => <Canvas Main={SearchPanel} />;

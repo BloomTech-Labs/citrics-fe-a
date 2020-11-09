@@ -7,7 +7,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import '../../../styles/style.less';
 
 function SearchBar(props) {
-  console.log(props.newProps);
   const history = useHistory();
   const currentLocation = useLocation().pathname;
   const dispatch = useDispatch();

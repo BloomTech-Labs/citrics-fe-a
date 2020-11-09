@@ -16,7 +16,6 @@ export default ({ display }) => {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    console.log(cities);
     if (currentLocation != '/compare' && cities.length === 2)
       history.push('/compare');
     cities.forEach(c => {

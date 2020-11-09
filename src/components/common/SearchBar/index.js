@@ -3,18 +3,18 @@ import SearchBar from './Component';
 import { mobileStyles, tabletStyles, desktopStyles } from './styles';
 import { IsMobile, IsTablet, IsDesktop } from '../../layouts/breakPoints';
 
-export default () => (
+export default newProps => (
   <>
     <IsMobile>
-      <SearchBar styles={mobileStyles} />
+      <SearchBar styles={mobileStyles} newProps={newProps} />
     </IsMobile>
 
     <IsTablet>
-      <SearchBar styles={tabletStyles} />
+      <SearchBar styles={tabletStyles} newProps={newProps} />
     </IsTablet>
 
     <IsDesktop>
-      <SearchBar styles={desktopStyles} />
+      <SearchBar styles={desktopStyles} newProps={newProps} />
     </IsDesktop>
   </>
 );

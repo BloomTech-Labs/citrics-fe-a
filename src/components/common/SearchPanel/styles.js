@@ -6,6 +6,7 @@ export default (display, theme) => ({
   //put your styles in this object
   container: container(display, theme),
   style2: style2(display, theme),
+  sliderStyle: sliderStyle(display, theme),
 });
 
 // below here we are just styling each jsx element (mobile, tablet, and desktop resolutions)
@@ -82,6 +83,32 @@ const style2 = (display, theme) => {
         display: 'flex',
         justifyContent: 'space-evenly',
         width: '100%',
+        marginBottom: '10%',
+      };
+};
+
+const sliderStyle = (display, theme) => {
+  const css = {
+    //color: theme.primary,
+    //backgroundColor: theme.bg,
+  };
+  return isMobile(display)
+    ? //mobile css
+      {
+        ...css,
+        display: 'none',
+      }
+    : isTablet(display)
+    ? //tablet css (spread this bad boy and pass in what you want to change)
+      {
+        ...css,
+      }
+    : //desktop (spread this bad boy and pass in what you want to change)
+      {
+        ...css,
+        display: 'flex',
+        flexDirection: 'column',
+        width: '15%',
         marginBottom: '10%',
       };
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Canvas } from '../../layouts';
 import SearchPanel from '../../common/SearchPanel';
+import Searchbar from '../../common/SearchBar';
 import CardContainer from '../../common/CardContainer';
 import '../../../styles/ComparisonPage.less';
 import { PlotlyCard } from '../../common';
@@ -11,10 +12,16 @@ export default ({ styles }) => {
   const Blank = () => <div></div>;
   return (
     <Canvas
-      Side={SearchPanel}
-      Main={() =>
-        cityData.length ? <CardContainer Card={PlotlyCard} /> : Blank
-      }
+      // Side={SearchPanel}
+      Main={() => {
+        return (
+          <>
+            <Searchbar />
+            <Searchbar />
+            {cityData.length && <CardContainer Card={PlotlyCard} />}
+          </>
+        );
+      }}
     />
   );
 };

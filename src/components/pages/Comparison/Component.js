@@ -19,14 +19,22 @@ export default ({ styles }) => {
               display: 'flex',
               flexDirection: 'column',
               width: '100%',
-              top: '100px',
+              marginTop: '10%',
             }}
           >
             <SearchBar />
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
               {cityData.length && cityData.map(c => <CityCard city={c} />)}
             </div>
-            {cityData.length && <CardContainer Card={PlotlyCard} />}
+            {/* <div className="wrapper" style={{ margin: 'auto' }}> */}
+            {cityData.length && (
+              <CardContainer
+                className="card-container"
+                Card={PlotlyCard}
+                styles={{ width: '70%' }}
+              />
+            )}
+            {/* </div> */}
           </div>
         );
       }}

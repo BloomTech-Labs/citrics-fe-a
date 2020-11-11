@@ -13,7 +13,8 @@ export default (display, theme) => ({
 const plotlyCardContainer = (display, theme) => {
   // this is our base css object
   const css = {
-    width: '100%',
+    width: '70%',
+    margin: 'auto',
   };
   // spread the css const to pass in what you want to change
   return isMobile(display)
@@ -34,6 +35,7 @@ const cityCardContainer = (display, theme) => {
   // this is our base css object
   const css = {
     width: '100%',
+    margin: 'auto',
   };
   // spread the css const to pass in what you want to change
   return isMobile(display)
@@ -57,5 +59,5 @@ const cityCardContainer = (display, theme) => {
         //flexWrap: 'nowrap',
       }
     : //desktop (spread this bad boy and pass in what you want to change)
-      { ...css };
+      { ...css, width: '100%' };
 };

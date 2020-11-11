@@ -9,6 +9,7 @@ import {
   HomeOutlined,
   TeamOutlined,
   DollarCircleOutlined,
+  DownOutlined,
 } from '@ant-design/icons';
 
 import { Switch } from 'antd';
@@ -25,6 +26,7 @@ const icons = {
 export default ({ props, display }) => {
   const { graphLabel, data } = props;
   const [graphTypeState, setGraphTypeState] = useState('bar');
+  const [isHidden, setIsHidden] = useState(true);
   const theme = useSelector(state => state.theme);
   const cardHeight = 64 * data.length;
   const sty = styles(display, theme);
@@ -78,6 +80,10 @@ export default ({ props, display }) => {
     },
   };
 
+  const toggleCard = () => {
+    setIsHidden(!isHidden);
+  };
+
   return (
     <div className="card" style={sty.card}>
       <div className="cardInfo">
@@ -90,10 +96,11 @@ export default ({ props, display }) => {
             onChange={graphTypeHandler}
             disabled={data.length === 1 ? true : false}
           />
+          <DownOutlined className="toggle" onClick={toggleCard} />
         </div>
       </div>
 
-      <div className="plotContainer">
+      <div className={`plotContainer ${isHidden ? 'hidden' : ''}`}>
         <Plot
           data={data.map(citydata => {
             return graphTypeState === 'line' &&

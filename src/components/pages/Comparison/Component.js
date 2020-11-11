@@ -1,9 +1,9 @@
 import React from 'react';
 import { Canvas } from '../../layouts';
-import SearchPanel from '../../common/SearchPanel';
 import CardContainer from '../../common/CardContainer';
 import '../../../styles/ComparisonPage.less';
-import { PlotlyCard } from '../../common';
+import { styles } from './styles';
+import { CityCard, PlotlyCard, SearchBar } from '../../common';
 import { useSelector } from 'react-redux';
 
 export default ({ styles }) => {
@@ -11,10 +11,33 @@ export default ({ styles }) => {
   const Blank = () => <div></div>;
   return (
     <Canvas
-      Side={SearchPanel}
-      Main={() =>
-        cityData.length ? <CardContainer Card={PlotlyCard} /> : Blank
-      }
+      // Side={SearchPanel}
+      Main={() => {
+        return (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100%',
+              marginTop: '10%',
+            }}
+          >
+            <SearchBar />
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+              {cityData.length && cityData.map(c => <CityCard city={c} />)}
+            </div>
+            {/* <div className="wrapper" style={{ margin: 'auto' }}> */}
+            {cityData.length && (
+              <CardContainer
+                className="card-container"
+                Card={PlotlyCard}
+                styles={{ width: '70%' }}
+              />
+            )}
+            {/* </div> */}
+          </div>
+        );
+      }}
     />
   );
 };

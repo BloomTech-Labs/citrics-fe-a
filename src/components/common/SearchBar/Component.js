@@ -22,14 +22,14 @@ function SearchBar(props) {
   }, [dispatch]);
   const onChange = value => dispatch(filterCities(value));
   // you can pass the object id to global state from here
-  const onSelect = (value, city) => {
-    props.newProps.setCities([...props.newProps.cities, city]);
-  };
+  // const onSelect = (value, city) => {
+  //   props.newProps.setCities([...props.newProps.cities, city]);
+  // };
   return (
     <AutoComplete
       defaultValue={filter}
       options={cityData}
-      onSelect={onSelect}
+      onSelect={props.newProps.onSelect}
       defaultActiveFirstOption={true}
       onChange={onChange}
       filterOption={true}

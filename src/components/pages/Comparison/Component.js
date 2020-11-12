@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 export default ({ styles }) => {
   const cityData = useSelector(state => state.cardContainer.cityData);
   const Blank = () => <div></div>;
+
   return (
     <Canvas
       // Side={SearchPanel}

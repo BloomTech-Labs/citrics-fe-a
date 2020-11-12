@@ -23,6 +23,12 @@ export default ({ display }) => {
     });
   }, [cities]);
 
+  const onSelect = (value, city) => {
+    setCities([...cities, city]);
+  };
+
+  console.log(cities);
+
   const theme = useSelector(state => state.theme);
   const sty = styles(display, theme);
 
@@ -32,8 +38,8 @@ export default ({ display }) => {
       style={{ ...sty.container, backgroundColor: 'unset' }}
     >
       <div style={{ ...sty.style2 }}>
-        <SearchBar setCities={setCities} cities={cities} />
-        <SearchBar setCities={setCities} cities={cities} />
+        <SearchBar setCities={setCities} cities={cities} onSelect={onSelect} />
+        <SearchBar setCities={setCities} cities={cities} onSelect={onSelect} />
       </div>
       <hr style={{ border: 'solid 2px white', width: '80%' }} />
       <div style={{ ...sty.style2 }}>

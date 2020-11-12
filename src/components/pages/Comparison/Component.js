@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Canvas } from '../../layouts';
 import CardContainer from '../../common/CardContainer';
 import '../../../styles/ComparisonPage.less';
 import { styles } from './styles';
 import { CityCard, PlotlyCard, SearchBar } from '../../common';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { cardContainerActs } from '../../../state/actions';
 
 export default ({ styles }) => {
   const cityData = useSelector(state => state.cardContainer.cityData);
-  const Blank = () => <div></div>;
+  const [newCity, setNewCity] = useState();
+  const { fetchSpecificCityData } = cardContainerActs;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (newCity) {
+      dispatch(fetchSpecificCityData(newCity.id, newCity.value));
+    }
+  }, [newCity]);
+
+  const onSelect = (value, city) => {
+    setNewCity(city);
+  };
 
   return (
     <Canvas
@@ -23,7 +37,7 @@ export default ({ styles }) => {
               marginTop: '10%',
             }}
           >
-            <SearchBar />
+            <SearchBar onSelect={onSelect} />
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
               {cityData.length && cityData.map(c => <CityCard city={c} />)}
             </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { SearchBar } from '../../common';
-import { searchBarActs, cardContainerActs } from '../../../state/actions';
+import { cardContainerActs } from '../../../state/actions';
 
 // import '../../styles/style.less';
 import styles from './styles.js';
@@ -26,8 +26,6 @@ export default ({ display }) => {
   const onSelect = (value, city) => {
     setCities([...cities, city]);
   };
-
-  console.log(cities);
 
   const theme = useSelector(state => state.theme);
   const sty = styles(display, theme);

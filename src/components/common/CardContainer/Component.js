@@ -11,12 +11,20 @@ import { cardContainerActs } from '../../../state/actions';
 import { PlotlyCard, CityCard } from '../../common';
 
 // PLOTLY START
+// Original code
+// const graphLabels = [
+//   'Population',
+//   'Average Household Income',
+//   'Average Home Price',
+//   'Average Temperature',
+// ];
+
 const graphLabels = [
+  'Average Rental Prices',
+  'Walkscore',
   'Population',
-  'Average Household Income',
-  'Average Home Price',
   'Average Temperature',
-];
+]
 
 export default ({ Card, display }) => {
   const { cityData, nationalAverage } = useSelector(
@@ -28,44 +36,44 @@ export default ({ Card, display }) => {
   const dispatch = useDispatch();
   const { fetchNationalAverage } = cardContainerActs;
 
-  const calculateAverage = data => {
-    let average = 0;
-    for (let i = 0; i < data.length; i++) {
-      average += data[i].temperature;
-    }
-    return Math.round(average / data.length);
-  };
+  // const calculateAverage = data => {
+  //   let average = 0;
+  //   for (let i = 0; i < data.length; i++) {
+  //     average += data[i].temperature;
+  //   }
+  //   return Math.round(average / data.length);
+  // };
 
-  const getYearlyHistory = data => {
-    let d = {};
-    let newYearlyAverage = [];
+  // const getYearlyHistory = data => {
+  //   let d = {};
+  //   let newYearlyAverage = [];
 
-    for (let i = 0; i < data.length; i++) {
-      if (d[data[i].year] !== undefined) {
-        d[data[i].year] += data[i].housingcost;
-      } else {
-        d[data[i].year] = data[i].housingcost;
-      }
-    }
+  //   for (let i = 0; i < data.length; i++) {
+  //     if (d[data[i].year] !== undefined) {
+  //       d[data[i].year] += data[i].housingcost;
+  //     } else {
+  //       d[data[i].year] = data[i].housingcost;
+  //     }
+  //   }
 
-    for (const [key, value] of Object.entries(d)) {
-      d[key] = { year: key, housingcost: Math.floor(value / 12) };
-      newYearlyAverage.push(d[key]);
-    }
+  //   for (const [key, value] of Object.entries(d)) {
+  //     d[key] = { year: key, housingcost: Math.floor(value / 12) };
+  //     newYearlyAverage.push(d[key]);
+  //   }
 
-    return newYearlyAverage;
-  };
+  //   return newYearlyAverage;
+  // };
 
   const cityDataCopy = [];
   nationalAverage.color = theme.primaryDarker;
   nationalAverage.averagetemperature = '52.4';
-  cityData.forEach(city => {
-    city.averagetemperature = calculateAverage(city.historicalweather);
-    city.historicalyearlyhousecost = getYearlyHistory(
-      city.historicalaveragehouse
-    );
-    cityDataCopy.push(city);
-  });
+  // cityData.forEach(city => {
+  //   city.averagetemperature = calculateAverage(city.historicalweather);
+  //   city.historicalyearlyhousecost = getYearlyHistory(
+  //     city.historicalaveragehouse
+  //   );
+  //   cityDataCopy.push(city);
+  // });
   cityDataCopy.push(nationalAverage);
 
   useEffect(() => {

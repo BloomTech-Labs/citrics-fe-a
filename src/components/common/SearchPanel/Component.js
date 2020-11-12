@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { SearchBar } from '../../common';
-import { searchBarActs, cardContainerActs } from '../../../state/actions';
+import { cardContainerActs } from '../../../state/actions';
 
 // import '../../styles/style.less';
 import styles from './styles.js';
@@ -23,6 +23,10 @@ export default ({ display }) => {
     });
   }, [cities]);
 
+  const onSelect = (value, city) => {
+    setCities([...cities, city]);
+  };
+
   const theme = useSelector(state => state.theme);
   const sty = styles(display, theme);
 
@@ -32,8 +36,8 @@ export default ({ display }) => {
       style={{ ...sty.container, backgroundColor: 'unset' }}
     >
       <div style={{ ...sty.style2 }}>
-        <SearchBar setCities={setCities} cities={cities} />
-        <SearchBar setCities={setCities} cities={cities} />
+        <SearchBar setCities={setCities} cities={cities} onSelect={onSelect} />
+        <SearchBar setCities={setCities} cities={cities} onSelect={onSelect} />
       </div>
       <hr style={{ border: 'solid 2px white', width: '80%' }} />
       <div style={{ ...sty.style2 }}>

@@ -25,7 +25,7 @@ export const fetchSpecificCityData = cityId => async (dispatch, getState) => {
   }
 
   dispatch({ type: 'CARDCONTAINER_FETCH_REQUEST' });
-  Axios.get(`https://labs27-c-citrics-api.herokuapp.com/cities/city/${cityId}`)
+  Axios.get(`${process.env.REACT_APP_API_URI}/cities/city/${cityId}`)
     .then(response => {
       response.data.color = cityColors[currentCities.length];
       response.data.colorIdx = currentCities.length;
@@ -60,9 +60,7 @@ export const removeCity = cityId => (dispatch, getState) => {
 };
 
 export const fetchNationalAverage = () => dispatch => {
-  Axios.get('https://labs27-c-citrics-api.herokuapp.com/cities/avg').then(
-    res => {
-      dispatch({ type: 'FETCH_NATIONAL_AVG', payload: { ...res.data, ...na } }); //hard coded needs to be changed to end
-    }
-  );
+  Axios.get(`${process.env.REACT_APP_API_URI}/cities/avg`).then(res => {
+    dispatch({ type: 'FETCH_NATIONAL_AVG', payload: { ...res.data, ...na } }); //hard coded needs to be changed to end
+  });
 };

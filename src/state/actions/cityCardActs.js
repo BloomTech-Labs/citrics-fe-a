@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
 export const fetchCityCardImage = cityNameState => (dispatch, getState) => {
+  console.log(cityNameState);
   const currentImages = getState().cityCard.cityImages;
   // check if image is already in state
   if (currentImages) {
@@ -18,11 +19,13 @@ export const fetchCityCardImage = cityNameState => (dispatch, getState) => {
       }`
     )
       .then(res => {
+        console.log(res);
         Axios.get(
           `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=${encodeURI(
-            res.data.query.search[0].title
+            res.data.query.search[1].title
           )}`
         ).then(res2 => {
+          console.log(res2);
           dispatch({
             type: 'CITYCARD_IMAGE_FETCH_SUCCESS',
             key: cityNameState,

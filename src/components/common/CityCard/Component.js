@@ -92,8 +92,9 @@ export default ({ city, display }) => {
   const isCityCard = city => city.colorIdx >= 0;
 
   useEffect(() => {
+    console.log(city);
     if (city) {
-      dispatch(fetchCityCardImage(city.citynamestate));
+      dispatch(fetchCityCardImage(`${city.name}&${city.state}`));
     }
   }, [city]);
 
@@ -115,7 +116,7 @@ export default ({ city, display }) => {
       >
         <Panel
           disabled={!isCityCard(city)}
-          header={city.citynamestate}
+          header={`${city.name}, ${city.state}`}
           key="1"
           extra={
             isCityCard(city) && display
@@ -142,7 +143,7 @@ export default ({ city, display }) => {
               defaultActiveKey={['2']}
               bordered={false}
             >
-              <Panel
+              {/* <Panel
                 key="2"
                 showArrow={false}
                 extra={makeButtons(InfoIcon, handleInfo)}
@@ -201,7 +202,7 @@ export default ({ city, display }) => {
                     <li>Covid score? {city.covid[0]} (placeholder)</li>
                   )}
                 </ul>
-              </Panel>
+              </Panel> */}
             </Collapse>
           </div>
         </Panel>

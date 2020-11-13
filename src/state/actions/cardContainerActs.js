@@ -27,6 +27,7 @@ export const fetchSpecificCityData = cityId => async (dispatch, getState) => {
   dispatch({ type: 'CARDCONTAINER_FETCH_REQUEST' });
   Axios.get(`${process.env.REACT_APP_API_URI}/cities/city/${cityId}`)
     .then(response => {
+      console.log(response);
       response.data.color = cityColors[currentCities.length];
       response.data.colorIdx = currentCities.length;
       dispatch({

@@ -3,13 +3,13 @@ import Axios from 'axios';
 export const fetchCities = () => async (dispatch, getState) => {
   dispatch({ type: 'SEARCHBAR_FETCH_REQUEST' });
 
-  Axios.get(`${process.env.REACT_APP_API_URI}/cities/allid`)
+  Axios.get(`${process.env.REACT_APP_API_URI}/cities/all`)
     .then(response => {
       dispatch({
         type: 'SEARCHBAR_FETCH_SUCCESS',
         payload: response.data.map(el => {
           return {
-            value: `${el.citynamestate}`,
+            value: `${el.name}, ${el.state}`,
             id: el.cityid,
           };
         }),

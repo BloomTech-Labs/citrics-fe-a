@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Plot from 'react-plotly.js';
 import '../../../styles/PlotlyCardTheme.less';
+import themes from '../../../styles/themes'
 import styles from './styles';
 import { useSelector } from 'react-redux';
 
@@ -34,7 +35,7 @@ export default ({ props, display }) => {
   const [isHidden, setIsHidden] = useState(true);
   const theme = useSelector(state => state.theme);
   const cardHeight = 64 * data.length;
-  const sty = styles(display, theme);
+  const sty = styles(display); // removed theme
 
   /******* OLD CODE ********
   // const relativeProperty = () => {
@@ -95,6 +96,7 @@ function initialCityObj() {
    y: [],
    type: 'scatter',
    mode: 'markers',
+   hoverinfo: 'x+y',
    marker: {
        color: '',
        size: 18,
@@ -105,21 +107,43 @@ function initialCityObj() {
 
 // The initial layout object for each city. This is passed into plotly to generate the graph. 
 const initialLayoutObj = {
-   legend: {
-       title: {
-           text: 'Cities'
-       }
-   },
-   xaxis: {
-       title: {
-           text: 'Cities'
-       }
-   },
-   yaxis: {
-       title: {
-           text: ''
-       }
-   }
+  legend: {
+      title: {
+          text: 'Cities'
+      }
+  },
+  xaxis: {
+      title: {
+          text: 'Cities'
+      }
+  },
+  yaxis: {
+      title: {
+          text: ''
+      }
+  },
+  plot_bgcolor: 'transparent',
+  paper_bgcolor: 'transparent',
+  autosize: true,
+  // margin: { l: 0, t: 0, r: 0, b: 0 },
+  yaxis: {
+    automargin: true,
+    visible: false,
+    gridcolor: '#ffffff20',
+    hoverformat: '.2s',
+  },
+  xaxis: {
+    automargin: true,
+    visible: true,
+    gridcolor: '#ffffff20',
+    // hoverformat: '.2f',
+  },
+  font: {
+    color: '#ffffff80',
+  },
+  line: {
+    color: 'white',
+  },
 }
 
 // Generates each individual city symbol on the graph
@@ -132,7 +156,7 @@ function symbolHelper(counter) {
        case 2:
            return 'diamond'
        case 3:
-           return 'cross'
+           return 'triangle-up'
        default:
            return
    }
@@ -142,13 +166,13 @@ function symbolHelper(counter) {
 function colorHelper(counter) {
    switch(counter) {
        case 0:
-           return 'red'
+           return '#FFF500' // tangerineLight
        case 1:
-           return 'blue'
+           return '#FF00A8' // magentaLight
        case 2:
-           return 'green'
+           return '#00FFF0' // skyLight
        case 3:
-           return 'yellow'
+           return '#00FF66' // primaryDark
        default:
            return
    }
@@ -245,6 +269,7 @@ function graphBuilder() {
            city.name = c.name
            city.x = [c.name]
            city.y = climateHelper(c.simple_climate)
+           city.hoverinfo = 'skip'
            city.text = 
                c.simple_climate === 'hot' ? ['🔥']:
                c.simple_climate === 'mild' ? ['🏖']:

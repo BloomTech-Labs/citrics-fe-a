@@ -51,12 +51,13 @@ export default ({ city, display }) => {
   //Redux
   const theme = useSelector(state => state.theme);
   const cardCount = useSelector(state => state.cardContainer.cityData.length);
+  const cityImages = useSelector(state => state.cityCard.cityImages);
   const dispatch = useDispatch();
   const { removeCity } = cardContainerActs;
   const { fetchCityCardImage } = cityCardActs;
   const { saveFavorite, removeFavorite } = userActs;
   const currentLocation = useLocation().pathname;
-
+  console.log(cityImages);
   //Toggles
   const [HeartIcon, toggleHeartIcon] = useVisibilityToggler(
     HeartOutlined,
@@ -94,7 +95,7 @@ export default ({ city, display }) => {
   useEffect(() => {
     console.log(city);
     if (city) {
-      dispatch(fetchCityCardImage(`${city.name}&${city.state}`));
+      dispatch(fetchCityCardImage(`${city.name}, ${city.state}`));
     }
   }, [city]);
 

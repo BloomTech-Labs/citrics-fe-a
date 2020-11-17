@@ -4,6 +4,7 @@ import { IsMobile, IsTablet, IsDesktop } from '../../layouts/breakPoints';
 
 export default ({ city }) => (
   <>
+  {/*** To inject props into the component, add props={propSource} to each component below} ***/}
     <IsMobile>
       <CityCard city={city} display={'mobile'} />
     </IsMobile>

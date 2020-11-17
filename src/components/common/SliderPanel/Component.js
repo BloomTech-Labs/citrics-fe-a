@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { Button } from '../../common';
-// import '../../styles/style.less';
+import React from 'react';
 import styles from './styles.js';
 import { useSelector } from 'react-redux';
 import { Slider } from 'antd';
 
+// This code is currently unused because the search by criteria feature is still under development
 export default ({ display }) => {
   const theme = useSelector(state => state.theme);
   const sty = styles(display, theme);

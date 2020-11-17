@@ -5,6 +5,7 @@ import { IsMobile, IsTablet, IsDesktop } from '../../layouts/breakPoints';
 
 export default () => (
   <>
+  {/*** To inject props into the component, add props={propSource} to each CardContainer below} ***/}
     <IsMobile>
       <FormButton props styles={mobileStyles} />
     </IsMobile>

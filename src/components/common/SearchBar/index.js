@@ -5,6 +5,7 @@ import { IsMobile, IsTablet, IsDesktop } from '../../layouts/breakPoints';
 
 export default newProps => (
   <>
+  {/*** To inject props into the component, add props={propSource} to each component below} ***/}
     <IsMobile>
       <SearchBar styles={mobileStyles} newProps={newProps} />
     </IsMobile>

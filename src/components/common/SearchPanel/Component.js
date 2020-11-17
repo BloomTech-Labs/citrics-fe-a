@@ -3,7 +3,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { SearchBar } from '../../common';
 import { cardContainerActs } from '../../../state/actions';
 
-// import '../../styles/style.less';
 import styles from './styles.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { Slider, Button } from 'antd';
@@ -32,14 +31,14 @@ export default ({ display }) => {
 
   return (
     <div
-      // className="search-container"
       style={{ ...sty.container, backgroundColor: 'unset' }}
     >
       <div style={{ ...sty.style2 }}>
         <SearchBar setCities={setCities} cities={cities} onSelect={onSelect} />
         <SearchBar setCities={setCities} cities={cities} onSelect={onSelect} />
       </div>
-      <hr style={{ border: 'solid 2px white', width: '80%' }} />
+      {/* Code below renders the slider bars for search by detailed criteria...code left for future development. */}
+      {/* <hr style={{ border: 'solid 2px white', width: '80%' }} />
       <div style={{ ...sty.style2 }}>
         <div style={{ ...sty.sliderStyle }}>
           <h4 style={{ margin: '0' }}>Population</h4>
@@ -56,7 +55,7 @@ export default ({ display }) => {
       </div>
       <div>
         <Button>Find Cities</Button>
-      </div>
+      </div> */}
     </div>
   );
 };

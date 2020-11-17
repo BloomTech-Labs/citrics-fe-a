@@ -5,6 +5,7 @@ import { Select } from 'antd';
 import states from './statedata.js';
 const { Option } = Select;
 
+// This page is current unused
 function DataVizContainer() {
   const initialState = 'AL';
   const [stateCode, setStateCode] = useState(initialState);

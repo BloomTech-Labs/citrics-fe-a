@@ -91,7 +91,6 @@ export default ({ city, display }) => {
   const isCityCard = city => city.colorIdx >= 0;
 
   useEffect(() => {
-    console.log(city);
     if (city) {
       dispatch(fetchCityCardImage(`${city.name}, ${city.state}`));
     }

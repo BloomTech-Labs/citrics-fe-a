@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '../../layouts';
-import { SearchPanel, SliderPanel } from '../../common/';
+import { SearchPanel } from '../../common/';
 
 // these functions are acting as jsx return statements, can be compartmentalized later.
 function titleContainer() {
@@ -25,5 +25,5 @@ function title() {
     </div>
   );
 }
-
+// Main canvas below renders /common/SearchPanel component, this is the primary entry point for users
 export default ({ styles }) => <Canvas Main={SearchPanel} />;

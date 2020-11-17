@@ -14,6 +14,7 @@ export default ({ display }) => {
   const currentLocation = useLocation().pathname;
   const [cities, setCities] = useState([]);
 
+  // When user selects second city, they are redirected to /pages/comparision component
   useEffect(() => {
     if (currentLocation != '/compare' && cities.length === 2)
       history.push('/compare');

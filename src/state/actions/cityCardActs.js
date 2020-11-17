@@ -22,7 +22,7 @@ export const fetchCityCardImage = cityNameState => (dispatch, getState) => {
         console.log(res);
         Axios.get(
           `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&formatversion=2&prop=pageimages|pageterms&piprop=original&titles=${encodeURI(
-            res.data.query.search[1].title
+            res.data.query.search[0].title
           )}`
         ).then(res2 => {
           console.log(res2);

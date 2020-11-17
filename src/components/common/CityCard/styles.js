@@ -64,6 +64,7 @@ const outerPanel = (display, theme, city) => {
 };
 
 const cityCardImg = (display, theme, city) => {
+  console.log(city);
   // this is our base css object
   const css = {
     background: `url(${city.wikiimgurl})`,

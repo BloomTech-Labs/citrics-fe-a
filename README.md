@@ -1,8 +1,7 @@
 
 # LABS 28 - CITRICS TEAM A
 
-You can find the deployed project [HERE](https://27-c.citrics.dev/).
-See a video demo [HERE](https://www.youtube.com/watch?v=K0kvbHh7vDY&feature=youtu.be). 
+You can find the deployed project [HERE](https://a.citrics.dev/).
 
 ## Contributors
 
@@ -74,7 +73,7 @@ To run this application, you will need:
 
 ## Design Files and User Flow
 
--View our Figma designs and user flow outline on [Whimsical](https://whimsical.com/4UKop3aqMB3KJRG2LXZzM6)
+-View our wireframes, engineering architecture, and user flow outline on [Whimsical](https://whimsical.com/4UKop3aqMB3KJRG2LXZzM6)
 
 # Contributing
 
@@ -110,9 +109,9 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ## Documentation
 
-See [Backend Documentation](https://labs27-c-citrics-api.herokuapp.com/swagger-ui.html#/) for details on the backend of our project.
+See [Backend README](https://github.com/Lambda-School-Labs/citrics-be-a/blob/master/README.md) for details on the backend of our project.
 
 ## CURRENT BUGS
-- Login does not work on deployed branch, it returns a CORS policy error 
-- When removing CityCard items from top down on /compare page it rearranges order of the cards, and leads to duplicate colors
+- CityCard background images are not rendering (when our data science API was redeployed, the `wikiimgurl` property was not a part of the data collected by the team)
+- Application re-renders after moving to `/compare` route, due to how we are handling the API call to our backend. Since all of the city data is captured on initial load from database, it would be more efficient to pull the cities in from the Redux store
 - National Average data is hardcoded at state/actions/cardContainerActs.js line 65. Needs to be updated to work with new National Average DS API endpoint 

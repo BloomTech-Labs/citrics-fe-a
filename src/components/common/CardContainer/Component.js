@@ -10,15 +10,6 @@ import { cardContainerActs } from '../../../state/actions';
 // COMPONENTS
 import { PlotlyCard, CityCard } from '../../common';
 
-// PLOTLY START
-// Original code
-// const graphLabels = [
-//   'Population',
-//   'Average Household Income',
-//   'Average Home Price',
-//   'Average Temperature',
-// ];
-
 const graphLabels = [
   'Average Rental Prices',
   'Walkscore',

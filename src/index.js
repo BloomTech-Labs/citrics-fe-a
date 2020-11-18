@@ -44,6 +44,7 @@ function App() {
     <Switch>
       <Route path="/login" component={LoginPage} />
       <Route path="/compare" component={ComparisonPage} />
+        {/* /Landing component is used to render the homepage */}
       <Route path="/" exact component={LandingPage} />
 
       {/* temporairly putting the landing component until we have a profile/favorites page */}

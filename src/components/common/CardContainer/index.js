@@ -6,7 +6,8 @@ import { useLocation } from 'react-router-dom';
 export default ({ Card }) =>
   useLocation().pathname != '/' ? (
     <>
-      <IsMobile>
+    {/*** To inject props into the component, add props={propSource} to each CardContainer below} ***/}
+      <IsMobile> 
         <CardContainer Card={Card} display={'mobile'} />
       </IsMobile>
 

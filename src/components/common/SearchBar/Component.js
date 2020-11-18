@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { AutoComplete, Input } from 'antd';
 import { LeftOutlined, SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchBarActs, cardContainerActs } from '../../../state/actions';
-import { useHistory, useLocation } from 'react-router-dom';
+import { searchBarActs } from '../../../state/actions';
 import '../../../styles/style.less';
 
 function SearchBar(props) {
-  const history = useHistory();
-  const currentLocation = useLocation().pathname;
   const dispatch = useDispatch();
-  const { fetchSpecificCityData } = cardContainerActs;
   const { fetchCities, filterCities } = searchBarActs;
-  const { filter, cityData, loading, error } = useSelector(
+  const { filter, cityData } = useSelector(
     state => state.searchBar
   );
   const theme = useSelector(state => state.theme);
@@ -21,10 +17,7 @@ function SearchBar(props) {
     dispatch(fetchCities());
   }, [dispatch]);
   const onChange = value => dispatch(filterCities(value));
-  // you can pass the object id to global state from here
-  // const onSelect = (value, city) => {
-  //   props.newProps.setCities([...props.newProps.cities, city]);
-  // };
+  
   return (
     <AutoComplete
       defaultValue={filter}
@@ -54,5 +47,5 @@ function SearchBar(props) {
     </AutoComplete>
   );
 }
-// outline: `3px solid ${theme.primaryLight}`
+
 export default SearchBar;

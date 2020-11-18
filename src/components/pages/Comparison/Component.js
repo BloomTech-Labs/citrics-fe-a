@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Canvas } from '../../layouts';
 import CardContainer from '../../common/CardContainer';
 import '../../../styles/ComparisonPage.less';
-import { styles } from './styles';
 import { CityCard, PlotlyCard, SearchBar } from '../../common';
 import { useSelector, useDispatch } from 'react-redux';
 import { cardContainerActs } from '../../../state/actions';
 
+// This page renders the comparative graphs for each selected city
 export default ({ styles }) => {
   const cityData = useSelector(state => state.cardContainer.cityData);
   const [newCity, setNewCity] = useState();
@@ -26,7 +26,6 @@ export default ({ styles }) => {
 
   return (
     <Canvas
-      // Side={SearchPanel}
       Main={() => {
         return (
           <div
@@ -38,10 +37,11 @@ export default ({ styles }) => {
             }}
           >
             <SearchBar onSelect={onSelect} />
+            {/* CityCard renders each city card above the graph container */}
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
               {cityData.length && cityData.map(c => <CityCard city={c} />)}
             </div>
-            {/* <div className="wrapper" style={{ margin: 'auto' }}> */}
+            {/* CardContainer holds the comparative graphs */}
             {cityData.length && (
               <CardContainer
                 className="card-container"
@@ -49,7 +49,6 @@ export default ({ styles }) => {
                 styles={{ width: '70%' }}
               />
             )}
-            {/* </div> */}
           </div>
         );
       }}
